@@ -13,6 +13,7 @@ export const ToDoAppInput = () => {
     const handleAddToDoItem = () => {
         if (taskText.trim() && selectedDate) {
             dispatch(addToDoItem({
+                id: Date.now().toString(),
                 text: taskText,
                 date: selectedDate
             }));
@@ -22,7 +23,7 @@ export const ToDoAppInput = () => {
     }
 
     const ToDoAppInputProps = {
-        bg: 'blue.3',
+        bg: 'myPalette.4',
         p: 'sm',
         justify: 'center',
         align: 'flex-end',
@@ -45,6 +46,7 @@ export const ToDoAppInput = () => {
             />
             <DatePickerInput
                 leftSection={<FaCalendarAlt />}
+                leftSectionPointerEvents='none'
                 placeholder='date'
                 w={140}
                 radius='lg'
@@ -52,7 +54,7 @@ export const ToDoAppInput = () => {
                 value={selectedDate}
                 onChange={setSelectedDate}
             />
-            <Button radius='lg' onClick={handleAddToDoItem} >add</Button>
+            <Button radius='lg' onClick={handleAddToDoItem} disabled={taskText.trim() === ''} >add</Button>
         </Group>
     )
 }

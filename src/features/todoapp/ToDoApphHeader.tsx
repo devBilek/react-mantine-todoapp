@@ -1,6 +1,6 @@
 import {Center, Title} from '@mantine/core'
 
-export const ToDoApphHeader = () => {
+export const ToDoAppHeader = () => {
     return (
         <>
             <Center mb='sm'>

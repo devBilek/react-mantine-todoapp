@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 //import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface ToDoItem {
+    id: string,
     text: string,
     date: Date
 }
@@ -12,6 +13,9 @@ export interface ToDoAppState {
 const initialState: ToDoAppState = {
     items: []
 }
+const sortItemsByDate = (a: ToDoItem, b: ToDoItem): number => {
+    return a.date.getTime() - b.date.getTime()
+}
 
 export const ToDoAppSlice = createSlice({
     name: 'ToDoApp',
@@ -19,6 +23,7 @@ export const ToDoAppSlice = createSlice({
     reducers: {
         addToDoItem: (state, action: PayloadAction<ToDoItem> ) => {
             state.items.push(action.payload)
+            state.items.sort(sortItemsByDate)
         }
     },
 })

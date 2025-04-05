@@ -1,11 +1,12 @@
 import {Container} from '@mantine/core'
-import {ToDoApphHeader} from "@/features/todoapp/ToDoApphHeader";
+import {ToDoAppHeader} from "@/features/todoapp/ToDoApphHeader";
 import {ToDoAppInput} from "@/features/todoapp/ToDoAppInput";
+import {ToDoAppList} from "@/features/todoapp/ToDoAppList";
 
 export const ToDoAppContainer = () => {
     const ToDoAppContainerProps = {
-        bg: 'blue.4',
-        h: '500px',
+        bg: 'myPalette.5',
+        mih: '500px',
         size: 'sm',
         p: 'lg',
         styles: {
@@ -17,8 +18,9 @@ export const ToDoAppContainer = () => {
 
     return (
         <Container {...ToDoAppContainerProps}>
-            <ToDoApphHeader/>
+            <ToDoAppHeader/>
             <ToDoAppInput/>
+            <ToDoAppList/>
         </Container>
     )
 }
