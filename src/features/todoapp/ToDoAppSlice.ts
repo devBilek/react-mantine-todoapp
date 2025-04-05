@@ -24,11 +24,14 @@ export const ToDoAppSlice = createSlice({
         addToDoItem: (state, action: PayloadAction<ToDoItem> ) => {
             state.items.push(action.payload)
             state.items.sort(sortItemsByDate)
+        },
+        deleteToDoItem: (state, action: PayloadAction<string>) => {
+            state.items = state.items.filter(item => item.id !== action.payload)
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToDoItem } = ToDoAppSlice.actions
+export const { addToDoItem, deleteToDoItem } = ToDoAppSlice.actions
 
 export default ToDoAppSlice.reducer
