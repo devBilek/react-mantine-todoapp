@@ -1,10 +1,10 @@
-import { Box } from '@mantine/core'
-import {ToDoAppContainer} from "@/features/todoapp/ToDoAppContainer";
+import { Box } from '@mantine/core';
+import { ToDoAppContainer } from '@/features/todoapp/ToDoAppContainer';
 
 export const Main = () => {
-    return (
-        <Box py='xl'>
-            <ToDoAppContainer/>
-        </Box>
-    )
-}
+  return (
+    <Box py="xl">
+      <ToDoAppContainer />
+    </Box>
+  );
+};

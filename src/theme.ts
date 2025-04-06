@@ -2,7 +2,7 @@ import { createTheme } from '@mantine/core';
 
 export const theme = createTheme({
   colors: {
-    'myPalette': [
+    myPalette: [
       '#DDE6ED', // index 0
       '#9DB2BF', // index 1
       '#9DB2BF', // index 2
@@ -20,13 +20,13 @@ export const theme = createTheme({
   components: {
     Title: {
       defaultProps: {
-        c: 'white'
-      }
+        c: 'white',
+      },
     },
     Text: {
       defaultProps: {
-        c: 'white'
-      }
-    }
-  }
+        c: 'white',
+      },
+    },
+  },
 });

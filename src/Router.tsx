@@ -6,7 +6,9 @@ const router = createBrowserRouter([
     path: '/',
     element: <HomePage />,
   },
-]);
+], {
+  basename: '/react-mantine-todoapp/',
+});
 
 export function Router() {
   return <RouterProvider router={router} />;
