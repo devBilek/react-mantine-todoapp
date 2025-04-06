@@ -1,5 +1,6 @@
 {
   "name": "mantine-vite-template",
+  "homepage": "https://devbilek.github.io/react-mantine-todoapp/",
   "private": true,
   "type": "module",
   "version": "0.0.0",
@@ -17,15 +18,18 @@
     "vitest:watch": "vitest",
     "test": "npm run typecheck && npm run prettier && npm run lint && npm run vitest && npm run build",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@mantine/core": "^7.17.2",
+    "@mantine/core": "^7.17.3",
     "@mantine/dates": "^7.17.3",
     "@mantine/hooks": "^7.17.2",
     "@reduxjs/toolkit": "^2.6.1",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.6.3",
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
