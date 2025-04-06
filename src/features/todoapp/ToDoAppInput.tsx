@@ -1,9 +1,10 @@
-import {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {addToDoItem} from "@/features/todoapp/ToDoAppSlice";
-import {Group, Input, Button} from '@mantine/core'
-import {DatePickerInput, DateValue} from '@mantine/dates'
+import { useState } from 'react';
 import { FaCalendarAlt } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
+import { Button, Flex, Group, Input } from '@mantine/core';
+import { DatePickerInput, DateValue } from '@mantine/dates';
+import { addToDoItem } from "@/features/todoapp/ToDoAppSlice";
+
 
 export const ToDoAppInput = () => {
     const [taskText, setTaskText] = useState<string>('')
@@ -12,11 +13,13 @@ export const ToDoAppInput = () => {
 
     const handleAddToDoItem = () => {
         if (taskText.trim() && selectedDate) {
-            dispatch(addToDoItem({
-                id: Date.now().toString(),
+            dispatch(
+              addToDoItem({
+                  id: '',
                 text: taskText,
-                date: selectedDate
-            }));
+                date: selectedDate,
+              })
+            );
         }
         setTaskText('')
         setSelectedDate(new Date())
@@ -44,17 +47,19 @@ export const ToDoAppInput = () => {
                 onChange={(e) => {setTaskText(e.target.value)}}
                 onKeyDown={(e) => e.key === 'Enter' && handleAddToDoItem()}
             />
-            <DatePickerInput
-                leftSection={<FaCalendarAlt />}
-                leftSectionPointerEvents='none'
-                placeholder='date'
-                w={140}
-                radius='lg'
-                minDate={new Date()}
-                value={selectedDate}
-                onChange={setSelectedDate}
-            />
-            <Button radius='lg' onClick={handleAddToDoItem} disabled={taskText.trim() === ''} >add</Button>
+            <Flex wrap='nowrap' gap='xs'>
+                <DatePickerInput
+                    leftSection={<FaCalendarAlt />}
+                    leftSectionPointerEvents='none'
+                    placeholder='date'
+                    w={180}
+                    radius='lg'
+                    minDate={new Date()}
+                    value={selectedDate}
+                    onChange={setSelectedDate}
+                />
+                <Button radius='lg' onClick={handleAddToDoItem} disabled={taskText.trim() === ''} >add</Button>
+            </Flex>
         </Group>
     )
 }
